@@ -51,3 +51,13 @@ export const createApp = (): Application => {
 
   return app;
 };
+
+// Vercel requires a default export of the Express app instance
+import { connectDatabase } from './config/database';
+import { seedDatabase } from './utils/seed';
+
+const app = createApp();
+
+connectDatabase().then(() => seedDatabase()).catch(() => {});
+
+export default app;
