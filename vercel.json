@@ -1,9 +1,14 @@
 {
   "version": 2,
+  "buildCommand": "cd backend && npm install && npm run build",
+  "outputDirectory": "backend/dist",
   "builds": [
     {
       "src": "backend/src/app.ts",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["backend/src/**"]
+      }
     }
   ],
   "routes": [
