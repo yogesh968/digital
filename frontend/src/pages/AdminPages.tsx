@@ -77,7 +77,7 @@ export const AdminDrawsPage: React.FC = () => {
       toast.success('Draw created');
       fetchDraws();
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Failed to create draw');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Failed to create draw');
     } finally { setActionLoading(null); }
   };
 
@@ -88,7 +88,7 @@ export const AdminDrawsPage: React.FC = () => {
       setSimulationResult(result);
       toast.success('Simulation complete');
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Simulation failed');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Simulation failed');
     } finally { setActionLoading(null); }
   };
 
@@ -99,7 +99,7 @@ export const AdminDrawsPage: React.FC = () => {
       toast.success('Draw run and entries saved');
       fetchDraws();
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Draw run failed');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Draw run failed');
     } finally { setActionLoading(null); }
   };
 
@@ -110,7 +110,7 @@ export const AdminDrawsPage: React.FC = () => {
       toast.success('Draw published!');
       fetchDraws();
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Publish failed');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Publish failed');
     } finally { setActionLoading(null); }
   };
 
@@ -237,7 +237,7 @@ export const AdminWinnersPage: React.FC = () => {
       toast.success(`Verification ${status}`);
       fetchWinners();
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Failed');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Failed');
     } finally { setActionLoading(null); }
   };
 
@@ -248,7 +248,7 @@ export const AdminWinnersPage: React.FC = () => {
       toast.success('Marked as paid');
       fetchWinners();
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Failed');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Failed');
     } finally { setActionLoading(null); }
   };
 

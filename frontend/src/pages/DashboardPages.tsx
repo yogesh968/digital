@@ -206,7 +206,7 @@ export const ScoresPage: React.FC = () => {
       setPlayedAt('');
       fetchScores();
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Failed to add score');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Failed to add score');
     } finally {
       setLoading(false);
     }

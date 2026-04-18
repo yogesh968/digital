@@ -47,7 +47,7 @@ export const LoginPage: React.FC = () => {
       toast.success('Welcome back!');
       navigate(result.user.role === 'admin' ? '/admin' : '/dashboard');
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Login failed');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Login failed');
     } finally {
       setLoading(false);
     }
@@ -96,7 +96,7 @@ export const SignupPage: React.FC = () => {
       toast.success('Account created! Welcome to GolfGives 🎉');
       navigate('/dashboard/charity');
     } catch (err: any) {
-      toast.error(err.response?.data?.error ?? 'Signup failed');
+      toast.error(err?.response?.data?.error ?? err?.message ?? 'Signup failed');
     } finally {
       setLoading(false);
     }

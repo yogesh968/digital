@@ -20,7 +20,7 @@ export const createApp = (): Application => {
 
   // CORS
   app.use(cors({
-    origin: config.app.url,
+    origin: true,
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   }));
@@ -39,6 +39,9 @@ export const createApp = (): Application => {
 
   // Static files (Winner Proofs)
   app.use('/uploads', express.static(path.join(__dirname, '../../uploads')));
+
+  // Root health check
+  app.get('/', (_req, res) => res.json({ status: 'Golf Charity API running' }));
 
   // API routes
   app.use('/api/v1', router);
